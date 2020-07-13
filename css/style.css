@@ -1,0 +1,283 @@
+/* width */
+
+::-webkit-scrollbar {
+  width: 15px;
+  z-index: -1;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #fece00;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fece99;
+}
+
+.navdec {
+  background-color: #fece00;
+  color: #fece00;
+}
+
+.navdec a {
+  color: white;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navtog {
+  /* background-image:url(<img src="https://img.icons8.com/ios-filled/50/000000/menu.png"/>); */
+  border-style: solid;
+  /* border-color: white; */
+  color: white;
+  /* background-color: white; */
+}
+
+#navshadow {
+  position: fixed;
+  width: auto;
+  transition: 0.2s;
+  display: flex;
+}
+
+.floatingNav {
+  width: calc(100vh - 100px);
+  z-index: 99;
+  border-radius: 2px;
+  box-shadow: 0px 5px 10px rgb(59, 59, 59);
+}
+
+/*Why */
+
+.mockimage {
+  width:40%;
+  float:right;
+  
+}
+@media only screen and (max-width: 990px){
+.mockimage {
+    width: 70%;
+    align-content:center;
+    margin-right: 0px;
+}
+.mockimage img{
+  width:70%;
+  height:auto;
+}
+}
+
+
+#main{
+  width:95%;
+  padding:2%;
+  margin:1%;
+}
+#main #left{
+  padding-top:20em;
+  text-align: right;
+  margin:1%;
+  width:50%;
+  float:left;
+}
+
+#main #right{
+  padding:1%;
+  margin:1%;
+  width:40%;
+  float:right;
+}
+#main #left img{
+  width:15em;
+  height:auto;
+}
+#main #right img{
+  height:50em;
+}
+@media only screen and (max-width: 1000px){
+#main #left{
+  width:95%;
+  text-align:center;
+  padding: 0;
+  margin-top: 100px;
+}
+#main #right{
+  width:95%
+}
+#main #left img{
+  padding:0em;
+}
+#main #right img{
+  width:100%;
+  height: auto;
+}
+}
+
+
+/* For Image Grid*/
+
+.irow {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.icolumn {
+  -ms-flex: 50%;
+  /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+.icolumn iimg {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .icolumn {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .icolumn {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+.download {
+  display: flex;
+  flex-direction: row;
+  padding-top: 150px;
+
+}
+/* FOr Faq */
+
+.faq {
+  background-color: #fece00;
+  color: black;
+  cursor: pointer;
+  font-family: Oswald;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.txt{
+  color: #fece00;
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+}
+.faqicon {
+  float: right;
+  color: white;
+}
+
+.faq:hover {
+  border: none;
+}
+
+.faqcontent {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  color: black;
+}
+
+.faqdiv {
+  width:100%;
+  padding-top: 37%;
+  padding-left: 28%;
+  padding-right: 28%;
+  background-color: white;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #fece00;
+}
+
+.footer {
+  background: #fece00;
+  color: black;
+  width: 100%;
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  color: black;
+}
+
+.footer li {
+  color: black;
+}
+
+.tnc {
+  color: aqua;
+}
+.divabout {
+  width: 100%;
+  padding-top: 2%;
+  background-color: white;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #fece00;
+}
+
+.divsupport {
+  width: 100%;
+  padding-top: 2%;
+  background-color: white;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #fece00;
+}
+
+.tellus{
+  color: #fece00;
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.form-control{
+  text-align: center;
+ }
+
+ .btn-success{
+  color: white;
+  background-color: #fece00;
+  margin: auto;
+  text-align: center;
+   
+ }

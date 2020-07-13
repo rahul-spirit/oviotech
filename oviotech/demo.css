@@ -1,0 +1,53 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+
+.formuii{
+    background-color: white;
+    padding: 5px;
+    margin: auto;
+    width: 43%;
+}
+.formui{
+    background-color: white;
+    padding: 20px;
+    margin: auto;
+    width: 43%;
+/* border: 1px solid black;     */
+}
+
+.link-gray{
+    text-decoration-color: slategray;
+}
+
+.btn btn-warning btn-block{
+    margin: auto;
+    width: 43%;
+}
+
+.label-link{
+    font-size: 12px;
+}
+
+/* * {
+    box-sizing: border-box;
+} */
+
+label {
+    font-weight: 600;
+}
+ul{
+    text-align: center;
+    margin-top: 20px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+ul li{
+    padding: 0px;
+    margin-top: 20px;
+}

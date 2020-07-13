@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="demo.css">
+
+  </head>
+<body >
+
+  <div class="header header-logged-out width-full pt-5 pb-4" role="banner">
+    <div class="container clearfix width-full text-center">
+      <a class="header-logo" href="https://oviotech.in/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+    <img class="shadow-lg border" src="https://oviotech.in/img/logo.svg" alt="" height="80px" width="80px">
+      </a>
+    </div>
+    </div>
+
+
+    <div class="application-main " data-commit-hovercards-enabled="">
+      <main id="js-pjax-container" data-pjax-container="">
+        
+   
+     <div class="container">
+
+    
+              <div class="form-group formui shadow-lg border container" >
+                <center><h3>Login In To Ovio Seller's</h3></center>
+
+            <label >Email address</label>
+            <input type="email" class="form-control" id="emailfield" aria-describedby="emailHelp">
+            <!--  <small id="emailHelp" class="form-text text-muted">Mute Text</small> -->
+            
+            <label>Password</label>
+            <input type="password" class="form-control" id="passwordfield">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+            </div>
+     <button class="btn btn-warning btn-block" onclick="login()"> LOGIN</button>
+     <button onclick="passreset()" class="btn btn-warning btn-block" >Password Reset</button>
+          
+    </div>
+        <style>
+          .boxy{
+            font-size: 20px;
+            text-align: end;
+          }
+        </style>
+<p></p>
+        <div class="bttn">
+          <form class="formuii shadow-lg border bg-gray">
+            <button  class="btn  btn-block btn-disabled"><a href="signup.html" >&nbsp; Create New accounnt</a></button>
+
+
+
+            <!-- <input type="submit" name="commit" value="Sign in" tabindex="3" class="btn btn-warning btn-block" data-disable-with="Signing in…"> -->
+          
+        </div>
+        </div>
+      </main>
+
+      </div>
+
+        <div class="d-flex">
+          <ul class="list-style-none d-flex flex-justify-center">
+              <li class="mr-3"><a href="#" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+              <li class="mr-3"><a href="#" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+              <li class="mr-3"><a href="#" data-ga-click="Footer, go to security, text:security">Security</a></li>
+                <li><a class="link-gray" data-ga-click="Footer, go to contact, text:contact" href="oviotech.in">Contact Ovio</a></li>
+          </ul>
+        </div> 
+        
+     
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+      <script src="index.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      
+<script>
+ 
+</script>
+   
+</body>
+</html>
