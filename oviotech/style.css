@@ -68,7 +68,7 @@ body{
 }
 
 .icon-bullet::after{
-   content: "" ;
+   content: "" ;  
    position: absolute;
    top: 7px;
    left: 15px;
