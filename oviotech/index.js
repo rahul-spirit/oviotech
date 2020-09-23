@@ -83,7 +83,7 @@ auth.sendPasswordResetEmail(email).then(function() {
 });
 }
 
-// to check if user is logged in or not
+/* to check if user is logged in or not
 function IsUser(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (!user)
