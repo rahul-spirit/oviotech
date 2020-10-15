@@ -1,20 +1,20 @@
-    // Your web app's Firebase configuration
-   var firebaseConfig = {
-    apiKey: "AIzaSyCC5NJhQP6jmhwCjV7sk2RSe2buMc9jJVY",
-    authDomain: "ovio-1.firebaseapp.com",
-    databaseURL: "https://ovio-1.firebaseio.com",
-    projectId: "ovio-1",
-    storageBucket: "ovio-1.appspot.com",
-    messagingSenderId: "354649423076",
-    appId: "1:354649423076:web:7e278f62a7e01a82a000f1",
-    measurementId: "G-LRYKRV5BEE"
-  };
-  // Initialize Firebase
-  if(!firebase.apps.length){
-  firebase.initializeApp(firebaseConfig);
-  }
-  firebase.analytics();
-  firebase.auth();
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyCC5NJhQP6jmhwCjV7sk2RSe2buMc9jJVY",
+  authDomain: "ovio-1.firebaseapp.com",
+  databaseURL: "https://ovio-1.firebaseio.com",
+  projectId: "ovio-1",
+  storageBucket: "ovio-1.appspot.com",
+  messagingSenderId: "354649423076",
+  appId: "1:354649423076:web:7e278f62a7e01a82a000f1",
+  measurementId: "G-LRYKRV5BEE"
+};
+// Initialize Firebase
+if(!firebase.apps.length){
+firebase.initializeApp(firebaseConfig);
+}
+firebase.analytics();
+firebase.auth();
 
 //admin login
 function admincheck() {
@@ -44,11 +44,8 @@ function admincheck() {
 
 
 function adminpass(){
-
   window.location.href = "admin/index.html"
 }
-
-
 
 
 function seller(){
