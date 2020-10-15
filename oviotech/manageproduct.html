@@ -75,7 +75,7 @@
             if (change.type === "added") {
               i++
             document.getElementById('tbody').innerHTML+=
-                    `<tr>
+                    `<tr id="`+change.doc.id+`">
                       <td>`+i+`</td>
                       <td>`+change.doc.data().catagory+`</td>
                       <td>`+change.doc.data().color+`</td>
@@ -86,13 +86,21 @@
                       <td><button class="btn-primary" onclick=del('`+change.doc.id+`')>Delete</button></td>
                     </tr>`;
             }
-            /*
             if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.data());
+                document.getElementById(change.doc.id).innerHTML=` 
+                      <td>Updated</td>
+                      <td>`+change.doc.data().catagory+`</td>
+                      <td>`+change.doc.data().color+`</td>
+                      <td>`+change.doc.data().description+`</td>    
+                      <td>`+change.doc.data().firstname+`</td>    
+                      <td>`+change.doc.data().price+`</td>    
+                      <td><button class="btn-primary" onclick=edit('`+change.doc.id+`')>Edit</button></td>
+                      <td><button class="btn-primary" onclick=del('`+change.doc.id+`')>Delete</button></td>
+                      `;
             }
             if (change.type === "removed") {
-                console.log("Removed city: ", change.doc.data());
-            }*/
+                document.getElementById(change.doc.id).remove();;
+            }
         });
     });
 
