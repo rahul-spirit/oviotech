@@ -97,7 +97,7 @@
                 <input type="text" placeholder="Enter Email" id="email"  required>
                 <input type="password" placeholder="Enter Password" id="password" required>
                 <input type="text" placeholder="Enter Spoc name" id="spoc" required>
-                <input type="text" placeholder="Enter company name" id="companyName" required>
+                <input type="text" placeholder="Enter company name" id="firmName" required>
                 <button type="submit" class="btn btn-primary" onclick="CreateSeller()">Add</button>
                 <button type="button" class="btn btn-danger " onclick="cancel()">Close</button>
             </div>
@@ -144,27 +144,43 @@
    <!--google chart >> -->
    
    <script>
-    let i=0;
-    firebase.firestore().collection("Sellers").get()
-    .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-            let d=doc.data();
-            i++;
-            document.getElementById('tbody').innerHTML+=
-                    `<tr>
-                      <td>`+i+`</td>
-                      <td>`+d.spoc+`</td>
-                      <td>`+d.firmName+`</td>
-                      <td>`+d.email+`</td>
-                      <td>`+d.mobile+`</td>
-                      <td><button onclick="deleteSeller('`+doc.id+`')">DeleteIcon</button>
-                          <button onclick="EditSeller('`+doc.id+`','`+d.spoc+`','`+d.firmName+`','`+d.email+`','`+d.mobile+`')">EditIcon</button><td>
-                    </tr>`;
-        });
-    })
-    .catch(function (error) {
-      console.log("error")
-    })
+      let i=0;
+      firebase.firestore().collection("Sellers")
+      .onSnapshot(function(snapshot) {
+          snapshot.docChanges().forEach(function(change) {
+              let d=change.doc.data();
+              if (change.type === "added") {
+                i++;
+                document.getElementById('tbody').innerHTML+=
+                  `<tr id='`+change.doc.id+`'>
+                    <td>`+i+`</td>
+                    <td>`+d.spoc+`</td>
+                    <td>`+d.firmName+`</td>
+                    <td>`+d.email+`</td>
+                    <td>`+d.mobile+`</td>
+                    <td><button onclick="deleteSeller('`+change.doc.id+`')">DeleteIcon</button>
+                        <button onclick="EditSeller('`+change.doc.id+`','`+d.spoc+`','`+d.firmName+`','`+d.email+`','`+d.mobile+`')">EditIcon</button><td>
+                  </tr>`;
+              }
+              if (change.type === "modified") {
+                document.getElementById(change.doc.id).innerHTML=
+                  `<tr id='`+change.doc.id+`'>
+                    <td>`+i+`</td>
+                    <td>`+d.spoc+`</td>
+                    <td>`+d.firmName+`</td>
+                    <td>`+d.email+`</td>
+                    <td>`+d.mobile+`</td>
+                    <td><button onclick="deleteSeller('`+change.doc.id+`')">DeleteIcon</button>
+                        <button onclick="EditSeller('`+change.doc.id+`','`+d.spoc+`','`+d.firmName+`','`+d.email+`','`+d.mobile+`')">EditIcon</button><td>
+                  </tr>`;
+              }
+              if (change.type === "removed") {
+                document.getElementById(change.doc.id).innerHTML=` `;
+              }
+          });
+      });
+
+            
 
     function addsell(){
       document.getElementById("addseller").style.display = "block";
@@ -175,7 +191,7 @@
       console.log(document.getElementById("email" ).value)
       console.log(document.getElementById("password").value)
       console.log(document.getElementById("spoc").value)
-      console.log(document.getElementById("companyName").value)
+      console.log(document.getElementById("firmName").value)
       document.getElementById("addseller").style.display = "none";
     }
     function cancel(){
@@ -210,7 +226,7 @@
       console.log(newEmail)
       console.log(newMobile)
 
-      document.getElementById('editBox').style.display='none';
+      document.getElementById('editBox').innerHTML=` `;
     }
 
 

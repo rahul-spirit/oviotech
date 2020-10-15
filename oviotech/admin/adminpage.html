@@ -280,7 +280,32 @@
    <script src="index.js"></script>
    
    <!--google chart >> -->
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   
+      <!--google chart >> -->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script>
+        google.charts.load('current', {'packages':['corechart']});
+           google.charts.setOnLoadCallback(drawChart);
+     
+           function drawChart() {
+             var data = google.visualization.arrayToDataTable([
+               ['month', 'Sales', 'Expenses'],
+               ['jan', 400,  400],
+               ['feb', 460,  450],
+               ['mar', 480,  430],
+               ['apr', 540,  451],
+               ['may', 600,  500]
+             ]);
+           
+             var options = {
+               title: 'OVIOs Performance',
+               curveType: 'function',
+               legend: { position: 'bottom' },
+             };
+           
+             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+           
+             chart.draw(data, options);
+           }
+      </script>
   </body>
 </html>

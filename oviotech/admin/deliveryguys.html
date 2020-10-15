@@ -90,19 +90,19 @@
 
         <div class="row mb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-            <h1 class="text-center mb-3">Sellers Info</h1>
-            <button class="btn btn-danger"  onclick="addsell()" > Add Seller </button>
-            <div id="addseller" style="display: none";>
-              <br><p>Enter details of new Seller</p>
+            <h1 class="text-center mb-3">DeliveryGuyss Info</h1>
+            <button class="btn btn-danger"  onclick="addsell()" > Add DeliveryGuys </button>
+            <div id="addDeliveryGuys" style="display: none";>
+              <br><p>Enter details of new DeliveryGuys</p>
                 <input type="text" placeholder="Enter Email" id="email"  required>
                 <input type="password" placeholder="Enter Password" id="password" required>
-                <input type="text" placeholder="Enter Spoc name" id="spoc" required>
-                <input type="text" placeholder="Enter company name" id="companyName" required>
-                <button type="submit" class="btn btn-primary" onclick="CreateSeller()">Add</button>
+                <input type="text" placeholder="Enter name name" id="name" required>
+                <input type="text" placeholder="Enter company name" id="profilePicUrl" required>
+                <button type="submit" class="btn btn-primary" onclick="CreateDeliveryGuys()">Add</button>
                 <button type="button" class="btn btn-danger " onclick="cancel()">Close</button>
             </div>
 
-            <!--Edit Sellers-->
+            <!--Edit DeliveryGuyss-->
             <div id="editBox"></div> 
 
 
@@ -146,76 +146,94 @@
    
    <script>
     let i=0;
-    firebase.firestore().collection("DeliveryGuys").get()
-    .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-            let d=doc.data();
-            i++;
-            document.getElementById('tbody').innerHTML+=
-                    `<tr>
-                      <td>`+i+`</td>
-                      <td><img src='`+d.profilePicUrl+`' style='width:2.5em;height:2.5em'><img></td>
-                      <td>`+d.name+`</td>
-                      <td>`+d.email+`</td>
-                      <td>`+d.vehicleNo+`</td>
-                      <td>`+doc.id+`<td>
-                      <td><button onclick="deleteSeller('`+doc.id+`')">DeleteIcon</button>
-                          <button onclick="EditSeller('`+doc.id+`','`+d.profilePicUrl+`','`+d.name+`','`+d.email+`','`+d.VehicleNo+`')">EditIcon</button><td>
-                    </tr>`;
+
+    firebase.firestore().collection("DeliveryGuys")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+            let d=change.doc.data();
+            if (change.type === "added") {
+              i++;
+              document.getElementById('tbody').innerHTML+=
+              `<tr id=`+change.doc.id+`>
+                <td>`+i+`</td>
+                <td><img src='`+d.profilePicUrl+`' style='width:2.5em;height:2.5em'><img></td>
+                <td>`+d.name+`</td>
+                <td>`+d.vehicleNo+`</td>
+                <td>`+d.email+`</td>
+                <td>`+change.doc.id+`<td>
+                <td><button onclick="deleteDeliveryGuys('`+change.doc.id+`')">DeleteIcon</button>
+                    <button onclick="EditDeliveryGuys('`+change.doc.id+`','`+d.vehicleNo+`','`+d.name+`','`+d.email+`','`+d.profilePicUrl+`')">EditIcon</button><td>
+              </tr>`;
+            }
+            if (change.type === "modified") {
+              document.getElementById(change.doc.id).innerHTML=
+                `<td>`+i+`</td>
+                  <td><img src='`+d.profilePicUrl+`' style='width:2.5em;height:2.5em'><img></td>
+                  <td>`+d.name+`</td>
+                  <td>`+d.vehicleNo+`</td>
+                  <td>`+d.email+`</td>
+                  <td>`+change.doc.id+`<td>
+                  <td><button onclick="deleteDeliveryGuys('`+change.doc.id+`')">DeleteIcon</button>
+                      <button onclick="EditDeliveryGuys('`+change.doc.id+`','`+d.vehicleNo+`','`+d.name+`','`+d.email+`','`+d.profilePicUrl+`')">EditIcon</button><td>
+                `
+            }
+            if (change.type === "removed") {
+              document.getElementById(change.doc.id).innerHTML=` `;
+            }
         });
-    })
-    .catch(function (error) {
-      console.log("error")
-    })
+    });
+
+
+
 
     function addsell(){
-      document.getElementById("addseller").style.display = "block";
+      document.getElementById("addDeliveryGuys").style.display = "block";
     }
 
-    function CreateSeller() {
-      console.log('create seller -- make Cloud Function for Userslist and Databaes')
+    function CreateDeliveryGuys() {
+      console.log('create DeliveryGuys -- make Cloud Function for Userslist and Databaes')
       console.log(document.getElementById("email" ).value)
       console.log(document.getElementById("password").value)
-      console.log(document.getElementById("spoc").value)
-      console.log(document.getElementById("companyName").value)
-      document.getElementById("addseller").style.display = "none";
+      console.log(document.getElementById("name").value)
+      console.log(document.getElementById("vehicleNo").value)
+      document.getElementById("addDeliveryGuys").style.display = "none";
     }
     function cancel(){
-      document.getElementById("addseller").style.display = "none";
+      document.getElementById("addDeliveryGuys").style.display = "none";
     }
 
-    function deleteSeller(docId) {
-      console.log('delete seller DB+userList whose EmailId+docId is'+docId);
+    function deleteDeliveryGuys(docId) {
+      console.log('delete DeliveryGuys DB+userList whose EmailId+docId is'+docId);
       console.log('Cloud Function << delete FirestoreDB and User...')
     }
 
-    function EditSeller(docId,a,b,c,d){
+    function EditDeliveryGuys(docId,a,b,c,d){
+      console.log('editing delivery guyes')
       document.getElementById('editBox').innerHTML=
               `<h3>Choose What to edit</h3>
-              <input type="text" id="new-spoc" value=`+a+`>
-              <input type="text" id="new-firmName" value=`+b+`>
+              <input type="text" id="new-name" value=`+a+`>
+              <input type="text" id="new-vehicleNo" value=`+b+`>
               <input type="text" id="new-email" value=`+c+`>
               <input type="text" id="new-mobile" value=`+d+`>
-              <button onclick='UpdateSellerInfo()'>Submit Changes</button>`
+              <button onclick='UpdateDeliveryGuysInfo()'>Submit Changes</button>`
     }
     
 
-    function UpdateSellerInfo(){
-      console.log('add seller info on Firestore and User-auth-List with firestore');
-      let newSpoc=document.getElementById("new-spoc").value;
-      let newFirmName=document.getElementById("new-firmName").value;
+    function UpdateDeliveryGuysInfo(){
+      console.log('add DeliveryGuys info on Firestore and User-auth-List with firestore');
+      let newname=document.getElementById("new-name").value;
+      let newvehicleNo=document.getElementById("new-vehicleNo").value;
       let newEmail=document.getElementById("new-email").value;
       let newMobile=document.getElementById("new-mobile").value;
 
-      console.log(newSpoc)
-      console.log(newFirmName)
+      console.log(newname)
+      console.log(newvehicleNo)
       console.log(newEmail)
       console.log(newMobile)
 
-      document.getElementById('editBox').style.display='none';
+      document.getElementById('editBox').innerHTML=` `;
     }
-
-
+    
    </script>
   </body>
 </html>
