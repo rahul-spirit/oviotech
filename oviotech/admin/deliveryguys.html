@@ -8,6 +8,7 @@
   <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="index.css">
   <title>Ovio AdminPanel</title>
 </head>
 
@@ -91,24 +92,66 @@
         <div class="row mb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <h1 class="text-center mb-3">DeliveryGuyss Info</h1>
-            <button class="btn btn-danger"  onclick="addsell()" > Add DeliveryGuys </button>
-            <div id="addDeliveryGuys" style="display: none";>
-              <br><p>Enter details of new DeliveryGuys</p>
-                <input type="text" placeholder="Enter Email" id="email"  required>
-                <input type="password" placeholder="Enter Password" id="password" required>
-                <input type="text" placeholder="Enter name name" id="name" required>
-                <input type="text" placeholder="Enter company name" id="profilePicUrl" required>
-                <button type="submit" class="btn btn-primary" onclick="CreateDeliveryGuys()">Add</button>
-                <button type="button" class="btn btn-danger " onclick="cancel()">Close</button>
-            </div>
+            
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning"  onclick="addsell()" data-toggle="modal" data-target="#staticBackdrop">
+  Add Delivery Guys
+</button>
 
-            <!--Edit DeliveryGuyss-->
-            <div id="editBox"></div> 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Enter Details of New Delivery Guys</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="addDeliveryGuys" style="display: none";>
+          <br>
+           <label> Enter Email </label>
+            <input class="label" type="text" placeholder="Enter Email" id="email"  required><br>
+            <label>Enter Password</label>
+            <input class="label" type="password" placeholder="Enter Password" id="password" required><br>
+            <label>Enter Name</label>
+            <input class="label" type="text" placeholder="Enter name name" id="name" required><br>
+            <label> Enter Company Name </label>
+            <input class="label" type="text" placeholder="Enter company name" id="profilePicUrl" required><br>
+            <button type="submit" class="btn btn-outline-success addbtn" onclick="CreateDeliveryGuys()">Add</button>
+             
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <!--Edit DeliveryGuyss--><div id="editBox"></div> 
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Enter Details of New Delivery Guys</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                    
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+                  
+                
 
 
 
             <div style="overflow-x:auto;width:100%;">
-            <table class="table">
+            <table class="table table-bordered">
               <thead>
                 <tr>
                   <th>No.</th>
@@ -117,7 +160,7 @@
                   <th>Vehicle No</th>
                   <th>Email Id</th>
                   <th>Phone no.</th>
-                  <th>ByDocId</th>
+                  <th>Manage</th>
                 </tr>
               </thead>
               <tbody id="tbody">
@@ -162,7 +205,7 @@
                 <td>`+d.email+`</td>
                 <td>`+change.doc.id+`<td>
                 <td><button onclick="deleteDeliveryGuys('`+change.doc.id+`')">DeleteIcon</button>
-                    <button onclick="EditDeliveryGuys('`+change.doc.id+`','`+d.vehicleNo+`','`+d.name+`','`+d.email+`','`+d.profilePicUrl+`')">EditIcon</button><td>
+                    <button  type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" onclick="EditDeliveryGuys('`+change.doc.id+`','`+d.vehicleNo+`','`+d.name+`','`+d.email+`','`+d.profilePicUrl+`')">EditIcon</button><td>
               </tr>`;
             }
             if (change.type === "modified") {
@@ -210,12 +253,35 @@
     function EditDeliveryGuys(docId,a,b,c,d){
       console.log('editing delivery guyes')
       document.getElementById('editBox').innerHTML=
-              `<h3>Choose What to edit</h3>
-              <input type="text" id="new-name" value=`+a+`>
-              <input type="text" id="new-vehicleNo" value=`+b+`>
-              <input type="text" id="new-email" value=`+c+`>
-              <input type="text" id="new-mobile" value=`+d+`>
-              <button onclick='UpdateDeliveryGuysInfo()'>Submit Changes</button>`
+              `
+              <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <label> Name</label><br>
+              <input class="label" type="text" id="new-name" value=`+b+`>
+              <label>Vehicle Number</label><br>
+              <input class="label" type="text" id="new-vehicleNo" value=`+d+`>
+              <label>Email ID</label><br>
+              <input class="label" type="text" id="new-email" value=`+c+`>
+              <label>Mobile Number</label><br>
+              <input class="label" type="text" id="new-mobile" value=`+a+`>
+              <button class="btn btn-success" onclick='UpdateDeliveryGuysInfo()'>Submit Changes</button>
+      </div>
+    
+    </div>
+  </div>
+</div>
+            
+              `
+
     }
     
 
@@ -237,3 +303,8 @@
    </script>
   </body>
 </html>
+
+
+
+
+

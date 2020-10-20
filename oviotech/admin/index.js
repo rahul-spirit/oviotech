@@ -30,7 +30,6 @@ function admincheck() {
           window.alert("error");
         }
       });
-
     })
     .catch(function (error) {
       // Handle Errors here.
@@ -38,10 +37,8 @@ function admincheck() {
       var errorMessage = error.message;
       // ...
       swal("Oops", "Wrong Password or Email Address", "error");
-
     });
 }
-
 
 function adminpass(){
   window.location.href = "admin/index.html"

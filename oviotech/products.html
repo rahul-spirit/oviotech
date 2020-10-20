@@ -8,6 +8,18 @@
   <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+      #products tr th{
+          padding:1em;
+          border:1px solid rgb(49, 49, 49);
+          width:20em;
+        }
+      #products tr td{
+        border:1px solid rgb(172, 172, 172);
+        padding:.5em;
+      }
+
+  </style>
   <title>Dashboard</title>
 </head>
 
@@ -33,8 +45,8 @@
             </div>
             <ul class="navbar-nav flex-column mt-4">
               <li class="nav-item"><a href="dashboard.html" class="nav-link text-white p-3 mb-2 sidebar-link"><svg class="svg-inline--fa fa-home fa-w-18 text-dark fa-lg mr-3" aria-hidden="true" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M488 312.7V456c0 13.3-10.7 24-24 24H348c-6.6 0-12-5.4-12-12V356c0-6.6-5.4-12-12-12h-72c-6.6 0-12 5.4-12 12v112c0 6.6-5.4 12-12 12H112c-13.3 0-24-10.7-24-24V312.7c0-3.6 1.6-7 4.4-9.3l188-154.8c4.4-3.6 10.8-3.6 15.3 0l188 154.8c2.7 2.3 4.3 5.7 4.3 9.3zm83.6-60.9L488 182.9V44.4c0-6.6-5.4-12-12-12h-56c-6.6 0-12 5.4-12 12V117l-89.5-73.7c-17.7-14.6-43.3-14.6-61 0L4.4 251.8c-5.1 4.2-5.8 11.8-1.6 16.9l25.5 31c4.2 5.1 11.8 5.8 16.9 1.6l235.2-193.7c4.4-3.6 10.8-3.6 15.3 0l235.2 193.7c5.1 4.2 12.7 3.5 16.9-1.6l25.5-31c4.2-5.2 3.4-12.7-1.7-16.9z"></path></svg><!-- <i class="fas fa-home text-light fa-lg mr-3"></i> -->Dashboard</a></li>
-              <li class="nav-item"><a href="profile.html" class="nav-link text-white p-3 mb-2 current"><svg class="svg-inline--fa fa-user fa-w-14 text-dark fa-lg mr-3" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg><!-- <i class="fas fa-user text-light fa-lg mr-3"></i> -->Profile</a></li>
-              <li class="nav-item"><a href="products.html" class="nav-link text-white p-3 mb-2 sidebar-link"><svg class="svg-inline--fa fa-user fa-w-14 text-dark fa-lg mr-3" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg><!-- <i class="fas fa-user text-light fa-lg mr-3"></i> -->Products</a></li>
+              <li class="nav-item"><a href="profile.html" class="nav-link text-white p-3 mb-2 sidebar-link"><svg class="svg-inline--fa fa-user fa-w-14 text-dark fa-lg mr-3" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg><!-- <i class="fas fa-user text-light fa-lg mr-3"></i> -->Profile</a></li>
+              <li class="nav-item"><a href="products.html" class="nav-link text-white p-3 mb-2 current"><svg class="svg-inline--fa fa-user fa-w-14 text-dark fa-lg mr-3" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg><!-- <i class="fas fa-user text-light fa-lg mr-3"></i> -->Products</a></li>
             </ul>
           </div>
         
@@ -89,15 +101,22 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-          <div class="row pt-md-5 mt-md-3 mb-5">
-            Rahul CSS bana 😃
+          <div class="pt-md-5 mt-md-3 mb-5">
+              <h1 class="center">Products Lists</h1>
+              <table id="products">
+                <tr>
+                    <th>Description</th>
+                    <th>Gender</th>
+                    <th>Category</th>
+                    <th>color</th>
+                    <th>firmName</th>
+                </tr>
+              </table>
           </div>
         </div>
       </div>
     </div> 
   </section>
-
-
 
  
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -109,6 +128,48 @@
    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
    <script src="index.js"></script>
-
+  <script>
+         // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyCC5NJhQP6jmhwCjV7sk2RSe2buMc9jJVY",
+    authDomain: "ovio-1.firebaseapp.com",
+    databaseURL: "https://ovio-1.firebaseio.com",
+    projectId: "ovio-1",
+    storageBucket: "ovio-1.appspot.com",
+    messagingSenderId: "354649423076",
+    appId: "1:354649423076:web:7e278f62a7e01a82a000f1",
+    measurementId: "G-LRYKRV5BEE"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  firebase.auth();
+    let pro=document.getElementById('products')
+    //.where("sellerID", "==", user.uid)
+    firebase.firestore().collection("Products")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+            let cd=change.doc.data();
+            if (change.type === "added") {
+                pro.innerHTML+=`
+                    <tr>
+                        <td>`+cd.Description+`</td>
+                        <td>`+cd.Gender+`</td>
+                        <td>`+cd.category+`</td>
+                        <td>`+cd.color+`</td>
+                        <td>`+cd.firmName+`</td>
+                    </tr>
+                `;
+            }
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Removed city: ", change.doc.data());
+            }
+        });
+    });
+      document.getElementById('products')
+  </script>
   </body>
 </html>

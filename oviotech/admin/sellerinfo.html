@@ -8,6 +8,7 @@
   <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="index.css">
   <title>Ovio AdminPanel</title>
 </head>
 
@@ -90,18 +91,46 @@
 
         <div class="row mb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-            <h1 class="text-center mb-3">Sellers Info</h1>
-            <button class="btn btn-danger"  onclick="addsell()" > Add Seller </button>
-            <div id="addseller" style="display: none";>
-              <br><p>Enter details of new Seller</p>
-                <input type="text" placeholder="Enter Email" id="email"  required>
-                <input type="password" placeholder="Enter Password" id="password" required>
-                <input type="text" placeholder="Enter Spoc name" id="spoc" required>
-                <input type="text" placeholder="Enter company name" id="firmName" required>
-                <button type="submit" class="btn btn-primary" onclick="CreateSeller()">Add</button>
-                <button type="button" class="btn btn-danger " onclick="cancel()">Close</button>
-            </div>
+            <h1 class="text-center mb-3">Sellers Details</h1>
+            <button type="button" class="btn btn-warning"  onclick="addsell()" data-toggle="modal" data-target="#staticBackdrop">
+              Add Seller
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Enter Details of New Seller</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="addseller" style="display: none";>
+                      <br>
+                      <label>Enter Email Address</label><br>
+                        <input class="label" type="text" placeholder="Enter Email" id="email"  required>
+                        <label>Enter Password</label><br>
+                        <input class="label" type="password" placeholder="Enter Password" id="password" required>
+                        <label>Enter SPOC</label><br>
+                        <input class="label" type="text" placeholder="Enter Spoc name" id="spoc" required>
+                        <label>Enter Company Name</label><br>
+                        <input class="label" type="text" placeholder="Enter company name" id="firmName" required>
+                        <button  type="submit" class="btn btn-outline-success addbtn" onclick="CreateSeller()">Add</button>
+                        
+                    </div>
 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+
+
+            
             <!--Edit Sellers-->
             <div id="editBox"></div> 
 
